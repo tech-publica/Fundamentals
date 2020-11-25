@@ -1,0 +1,17 @@
+1) Create an array of 100 ints which are the first 100 multiples of 3
+Calculate the sum and average (mean value) of this numbers
+2) Write a console app that asks the user to enter 3 lines of text (which can have spaces).
+Find out and print the number of words in those 3 lines of text, and the average number of chars in a word
+(Advanced) Find our the mode of the lenght of the words. THe mode of a distribution is the value that appears more times
+3) Create a void function which receives an integer and doubles it. Verify that when you call the funtion the original integer 
+does not change. Try againg with a void function which takes an integer REF parameters. Verify that this time you are changing
+the original value.
+4) Write a console app which asks the user to guess a number between 0 and 100
+When it receives the input using the Console.ReadLine funtion it will have to transform the input string into a number.
+Do the transformation with the method Int32.TryParse and understand how this method uses an output parameter
+If the number input by the user is lower than the guess print "lower", if it is higher print "higher",
+if it is the right number print a congratulation message and terminate the program
+5) Write a class to represent a Bank Account. The bank account will have a balance of type decimal,
+a method to deposit a decimal amount, a method to withdraw a decimal amount, and a final one to transfer a decimal amount to 
+another bank account. Wihdraw and transfer should execute only if the balance is greater or equal of the sum that we are trying
+to withdraw or transfer.
