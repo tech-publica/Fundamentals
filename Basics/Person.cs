@@ -2,7 +2,7 @@ using System;
 namespace Fundamentals.Basics
 {
   //blueprint
-  public class Person
+  internal class Person
   {
     //state
     public string firstname;

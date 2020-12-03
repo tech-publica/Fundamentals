@@ -1,9 +1,23 @@
 ﻿using System;
 using Fundamentals.Basics;
 using System.Collections.Generic;
-
+using System.Collections;
+using Extensions;
+using System.Linq;
 namespace Fundamentals
 {
+
+  // public interface MyInterface
+  // {
+  //   void A();
+  //   void B();
+  // }
+
+  // public class MyClass : MyInterface
+  // {
+  //   public void A() {/* .... */}
+  // }
+
   // fully qualified name of this class is Fundamentals.Program
   class Program
   {
@@ -11,57 +25,62 @@ namespace Fundamentals
     // entry point of the program
     static void Main(string[] args)
     {
-      
-        List<int> li = new List<int>();
-
-        String[] ss = new String[3];
-        for (int i = 0; i < 3; i++)
-        {
-          Console.Write("please give me the next value...>");
-          ss[i] = Console.ReadLine(); // riccardo.123
-        }
-
-        String name = ss[0].Substring(ss[0].IndexOf('.')); // "riccardo"
-
-        String[] parts = ss[0].Split('.');
-        String n = parts[0]; // "riccardo"
-  
-
-        String clientName;
-        Console.WriteLine("please give me a name");
-        clientName = Console.ReadLine();
-
-        Console.WriteLine("Hello World!");
-
-        int x1 = 10; // value type on the stack LIFO f1 -> f2 -> f3
-        int x2 = 20;
-        int s = Swap(x1, x2);
-        Console.WriteLine(x1);
-        Console.WriteLine(x2);
-        Person p1 = new Person(); // the object lives lives on the HEAP
-        p1.firstname = "Riccardo";
-        Person p2 = new Person(); // the object lives lives on the HEAP
-        p2.firstname = "Aarti";
-        Swap(p1, p2);
-        Console.WriteLine(p1.firstname);
-        Console.WriteLine(p2.firstname);
+       List<int> myList = new List<int>(210); // intelligent array 
  
+      int[][] arrayMat= new int[3][];
+      for ( int i =0; i < arrayMat.Length; i++)
+      {
+        arrayMat[i] = new int[(i+1) *2];
+      }
 
-        Point po = new Point();
+       myList.Add(2);
+       myList.Add(3);
+      myList.Add(9);
+      myList.Add(3);
+      myList.RemoveAt(3);
+
+      int biggeThan100 = myList.Where( num => num > 100).Count();
+
+      int[] myIntArray = new int[10];
+      int res = myList[0];
+      int res2 = myIntArray[0];
+      HashSet<Person> mySet = new HashSet<Person>();
+
+      // linq is lazy
+      var peopleWithR  = mySet.Where(p => p.Name.StartsWith("R")).ToList();  // linq operators work one element at a time
+       var names =   peopleWithR.Select(p => p.Name + " works as " + p.WorkId);
+      var bonuses = peopleWithR.Select( p => p.Bonus);
+                    
+      var  myStringList = result.ToList();  
+      string firstName =   myStringList[0];
 
 
-        int h = (int)10.7; //forced cast narrowing cast.. dangerous!
+       var result2 = from p in mySet 
+                   where p.Name.StartsWith("R")
+                   select p.Name + " works as " + p.WorkId;
 
-        int[] nums = new int[10];
-        int first = nums[0];
-        Console.WriteLine(first);
-
-        String[] names = new String[] { "riccardo", "aarti" };
-        string firstString = names[0];
-        Console.WriteLine(firstString == null);
-
-
+      Dictionary<int, Person> dict = new Dictionary<int, Person>();
      
+       
+
+
+      dict.Add(200, new Person());
+      dict.Add(4, new Person());
+
+      Person found = dict[4];
+
+      LinkedList<int> myLinked = new LinkedList<int>();
+    
+    //  char last = StringExtensions.LastChar("hello"); // works , but ugly
+       char last = "hello".LastChar(); // syntactic sugar
+
+      // LinqParseXMl xmlParser = new LinqParseXMl();
+      // xmlParser.ParseDocument("XML/example.xml");
+      var xmlReader = new UseXmlReader();
+      xmlReader.ParseFile("XML/example.xml");
+      Console.WriteLine("done");
+
+
     }
 
     // pass by value (copy)
@@ -74,12 +93,12 @@ namespace Fundamentals
       return sum;
     }
 
-    static Person Swap(Person p1, Person p2)
+    static void Swap(Person p1, Person p2)
     {
-      string temp = p1.firstname;
-      p1.firstname = p2.firstname;
-      p2.firstname = temp;
-      return p2;
+      var temp = p1;
+      p1 = p2;
+      p2 = temp;
+
     }
   }
 }

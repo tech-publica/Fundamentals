@@ -1,0 +1,3 @@
+<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(*NbOfLuCPa	:=	2	;*)<br />LuCNum	:=	5	;<br />
+								<br />emC_PPC[PPCNum].Param.NbOfLuCPa	:=	NbOfLuCPa_S	;<br />PPCNum	:=	1	;<br />emC_PPC[PPCNum].Param.FastSlowDataEnPa	:=	FastSlowDataEnPa_S	;<br />emC_PPC[PPCNum].Param.AllowGFMEnPa	:=	AllowGFMEnPa_S	;<br />emC_PPC[PPCNum].Param.AllowGFWEnPa	:=	AllowGFWEnPa_S	;<br />emC_PPC[PPCNum].Param.PQFVSelPaGfm	:=	PQFVSelPaGfm_S	;<br />emC_PPC[PPCNum].Param.PQFVSelPaGfw	:=	PQFVSelPaGfw_S	;<br />
+							</p>
